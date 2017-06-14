@@ -5,5 +5,6 @@ namespace reddit_newpost_ticker.Service.Interface
 {
     public interface IRedditService
     {
+        Task<Post> LatestPost();
     }
 }
