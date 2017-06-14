@@ -1,7 +1,6 @@
-﻿using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
-namespace reddit_newpost_ticker
+namespace reddit_newpost_ticker.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

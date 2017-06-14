@@ -1,7 +1,33 @@
-<Application x:Class="reddit_newpost_ticker.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:reddit_newpost_ticker" StartupUri="MainWindow.xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" d1p1:Ignorable="d" xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
-  <Application.Resources>
-    <ResourceDictionary>
-      <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:reddit_newpost_ticker.ViewModel" />
-    </ResourceDictionary>
-  </Application.Resources>
+<Application x:Class="reddit_newpost_ticker.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:reddit_newpost_ticker"
+             StartupUri="View/MainWindow.xaml" 
+             xmlns:viewModel="clr-namespace:reddit_newpost_ticker.ViewModel"
+             xmlns:models="clr-namespace:reddit_newpost_ticker.Models"
+             xmlns:classes="clr-namespace:reddit_newpost_ticker.Classes"
+             xmlns:view="clr-namespace:reddit_newpost_ticker.View">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type models:Post}">
+                <view:PostDisplay />
+            </DataTemplate>
+
+            <viewModel:ViewModelLocator x:Key="Locator" />
+            <classes:RedditConverter x:Key="RedditConverter" />
+            <classes:HtmlDecodeConverter x:Key="HtmlDecodeConverter" />
+
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
