@@ -1,4 +1,6 @@
+using System;
 using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -9,6 +11,8 @@ namespace reddit_newpost_ticker.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
+        public static string ApplicationPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "reddit_newpost_ticker");
+
         private readonly IRedditService _reddit;
 
         private Post _currentPost;

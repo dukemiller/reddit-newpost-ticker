@@ -91,6 +91,8 @@
     </ApplicationDefinition>
     <Compile Include="Models\Reddit.cs" />
     <Compile Include="Classes\Converters.cs" />
+    <Compile Include="Repository\Interface\ISettingsRepository.cs" />
+    <Compile Include="Repository\SettingsRepository.cs" />
     <Compile Include="View\Options.xaml.cs">
       <DependentUpon>Options.xaml</DependentUpon>
     </Compile>
