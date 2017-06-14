@@ -9,22 +9,24 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              TextElement.FontSize="22"
-             Width="250"
-             d:DesignHeight="300" d:DesignWidth="300">
+             Width="250">
     <UniformGrid Columns="1" Rows="4">
         <DockPanel>
             <Label VerticalAlignment="Center">Subreddit:</Label>
-            <TextBox Margin="8,0" Width="150" HorizontalAlignment="Right" HorizontalContentAlignment="Center"
-                     VerticalAlignment="Center" Text="{Binding Settings.Subreddit}" />
+            <TextBox Margin="8,0" Width="150"  Text="{Binding Settings.Subreddit}" />
         </DockPanel>
         <DockPanel>
             <Label VerticalAlignment="Center">Delay (s): </Label>
-            <ComboBox materialDesign:ComboBoxAssist.ClassicMode="True" 
-                      HorizontalAlignment="Center"
+            <ComboBox materialDesign:ComboBoxAssist.ClassicMode="True"
+                      HorizontalAlignment="Right"
                       HorizontalContentAlignment="Center"
                       Width="50"
                       SelectedItem="{Binding Settings.Frequency}"
                       ItemsSource="{Binding Frequencies}" />
+        </DockPanel>
+        <DockPanel>
+            <Label VerticalAlignment="Center">Notify new:</Label>
+            <CheckBox HorizontalAlignment="Right" Margin="15,0" IsChecked="{Binding Settings.Notify}" />
         </DockPanel>
     </UniformGrid>
 </UserControl>

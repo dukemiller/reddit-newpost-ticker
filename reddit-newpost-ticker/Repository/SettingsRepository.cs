@@ -13,6 +13,8 @@ namespace reddit_newpost_ticker.Repository
 
         public int Frequency { get; set; } = 5;
 
+        public bool Notify { get; set; } = false;
+
         public void Save()
         {
             using (var stream = new StreamWriter(SavePath))

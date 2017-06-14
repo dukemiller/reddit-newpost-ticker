@@ -4,6 +4,7 @@
     {
         string Subreddit { get; set; }
         int Frequency { get; set; }
+        bool Notify { get; set; }
         void Save();
     }
 }

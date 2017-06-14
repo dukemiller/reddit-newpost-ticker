@@ -5,6 +5,7 @@ using System.IO;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using reddit_newpost_ticker.Classes;
 using reddit_newpost_ticker.Models;
 using reddit_newpost_ticker.Repository.Interface;
 using reddit_newpost_ticker.Service.Interface;
@@ -113,7 +114,11 @@ namespace reddit_newpost_ticker.ViewModel
                     CurrentPost = null;
 
                 else if (CurrentPost?.Id != latest.Id)
+                {
                     CurrentPost = latest;
+                    if (Settings.Notify)
+                        FlashWindow.Flash();
+                }
 
                 await Task.Delay(Settings.Frequency * 1000);
             }
