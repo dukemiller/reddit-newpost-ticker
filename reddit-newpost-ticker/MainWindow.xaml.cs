@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 
 namespace reddit_newpost_ticker
 {
@@ -10,6 +11,12 @@ namespace reddit_newpost_ticker
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void MainWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }
