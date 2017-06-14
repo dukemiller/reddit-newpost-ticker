@@ -4,16 +4,27 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              Background="{StaticResource MaterialDesignCardBackground}"
-             xmlns:local="clr-namespace:reddit_newpost_ticker"
+             d:DataContext="{d:DesignInstance {x:Type viewModel:MainViewModel}}"
+             xmlns:viewModel="clr-namespace:reddit_newpost_ticker.ViewModel"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              TextElement.FontSize="22"
+             Width="250"
              d:DesignHeight="300" d:DesignWidth="300">
-    <UniformGrid Columns="2" Rows="4" >
-            <Label>Subreddit: </Label>
-            <TextBox Margin="8,0" VerticalAlignment="Top"  Width="200"></TextBox>
-            <Label>Delay (seconds): </Label>
-        <TextBox Margin="8,0" VerticalAlignment="Top"   ></TextBox>
-        
+    <UniformGrid Columns="1" Rows="4">
+        <DockPanel>
+            <Label VerticalAlignment="Center">Subreddit:</Label>
+            <TextBox Margin="8,0" Width="150" HorizontalAlignment="Right" HorizontalContentAlignment="Center"
+                     VerticalAlignment="Center" Text="{Binding Settings.Subreddit}" />
+        </DockPanel>
+        <DockPanel>
+            <Label VerticalAlignment="Center">Delay (s): </Label>
+            <ComboBox materialDesign:ComboBoxAssist.ClassicMode="True" 
+                      HorizontalAlignment="Center"
+                      HorizontalContentAlignment="Center"
+                      Width="50"
+                      SelectedItem="{Binding Settings.Frequency}"
+                      ItemsSource="{Binding Frequencies}" />
+        </DockPanel>
     </UniformGrid>
 </UserControl>

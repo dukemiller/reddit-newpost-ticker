@@ -1,5 +1,7 @@
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using reddit_newpost_ticker.Repository;
+using reddit_newpost_ticker.Repository.Interface;
 using reddit_newpost_ticker.Service.Interface;
 using reddit_newpost_ticker.Service;
 
@@ -10,6 +12,7 @@ namespace reddit_newpost_ticker.ViewModel
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
+            SimpleIoc.Default.Register<ISettingsRepository>(SettingsRepository.Load);
             SimpleIoc.Default.Register<IRedditService, RedditService>();
             SimpleIoc.Default.Register<MainViewModel>();
         }
