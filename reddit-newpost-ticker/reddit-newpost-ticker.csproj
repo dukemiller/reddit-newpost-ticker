@@ -90,6 +90,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Reddit.cs" />
+    <Compile Include="Classes\Converters.cs" />
     <Compile Include="Service\Interface\IRedditService.cs" />
     <Compile Include="Service\RedditService.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
