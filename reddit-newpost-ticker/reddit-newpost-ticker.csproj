@@ -139,6 +139,13 @@
   <ItemGroup>
     <None Include="FodyWeavers.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\attachment.png" />
+    <Resource Include="Resources\Images\img.png" />
+    <Resource Include="Resources\Images\nsfw.png" />
+    <Resource Include="Resources\Images\reddit.png" />
+    <Resource Include="Resources\Images\text.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
