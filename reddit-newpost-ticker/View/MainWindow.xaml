@@ -3,11 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:reddit_newpost_ticker"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
-        xmlns:view="clr-namespace:reddit_newpost_ticker.View"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:c="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:v="clr-namespace:reddit_newpost_ticker.View"
         MouseDown="MainWindow_OnMouseDown"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -20,7 +19,6 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
-
         Title="Reddit New Post Ticker" Height="180" Width="750">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -30,18 +28,18 @@
             <i:InvokeCommandAction Command="{Binding ToggleMenuCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <materialDesign:DrawerHost FocusVisualStyle="{x:Null}" IsRightDrawerOpen="{Binding IsShowingMenu}" Margin="8">
-        <materialDesign:DrawerHost.RightDrawerContent>
-            <view:Options DataContext="{Binding}" />
-        </materialDesign:DrawerHost.RightDrawerContent>
-        <controls:TransitioningContentControl Transition="Down">
-            <controls:TransitioningContentControl.Content>
+    <md:DrawerHost FocusVisualStyle="{x:Null}" IsRightDrawerOpen="{Binding IsShowingMenu}" Margin="8">
+        <md:DrawerHost.RightDrawerContent>
+            <v:Options />
+        </md:DrawerHost.RightDrawerContent>
+        <c:TransitioningContentControl Transition="Down">
+            <c:TransitioningContentControl.Content>
                 <Binding Path="CurrentPost">
                     <Binding.TargetNullValue>
-                        <view:Loading />
+                        <v:Loading />
                     </Binding.TargetNullValue>
                 </Binding>
-            </controls:TransitioningContentControl.Content>
-        </controls:TransitioningContentControl>
-    </materialDesign:DrawerHost>
+            </c:TransitioningContentControl.Content>
+        </c:TransitioningContentControl>
+    </md:DrawerHost>
 </Window>

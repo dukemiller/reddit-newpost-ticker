@@ -75,33 +75,25 @@ namespace reddit_newpost_ticker.ViewModel
         private void OpenSubreddit()
         {
             if (CurrentPost != null)
-            {
                 Process.Start($"https://reddit.com/{CurrentPost.SubredditNamePrefixed}");
-            }
         }
 
         private void OpenUser()
         {
             if (CurrentPost != null)
-            {
                 Process.Start($"https://reddit.com/u/{CurrentPost.Author}");
-            }
         }
 
         private void OpenPost()
         {
             if (CurrentPost != null)
-            {
                 Process.Start($"https://reddit.com{CurrentPost.Permalink}");
-            }
         }
 
         private void OpenLink()
         {
             if (CurrentPost != null)
-            {
                 Process.Start(CurrentPost.Url);
-            }
         }
 
         private async void Loaded()
